@@ -76,7 +76,7 @@ function getCookie(name) {
         if (cookieEnd == -1) {
             cookieEnd = document.cookie.length;
         }
-        cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+      cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
     }
     return cookieValue;
 }
@@ -92,6 +92,13 @@ function unsetCookie(name) {
 >其中`const`用来定义一个常量，常量可以看作是不能重复赋值的变量。
 >`let`可以像var一样作为变量声明，用在for或者for/in的循环当中，作为var的替代方案，作用域限定在块级；用let定义一个在表达式内部作用域中的变量，这个变量仅在表达式内有效。
 >
->
->
->
+
+
+* 真的很无聊到把console.log变模糊。。。
+```javascript
+var blurLog = console.log;
+console.log = function() {
+    blurLog.call(console, '%c' + [].slice.call(arguments).join(' '),
+        'color:transparent;text-shadow:0 0 2px rgba(0,0,0,.5);');
+};
+```
